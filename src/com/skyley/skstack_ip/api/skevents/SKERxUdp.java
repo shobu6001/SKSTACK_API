@@ -4,13 +4,13 @@ All rights reserved.
 
 Redistribution and use in source and binary forms, with or without
 modification, are permitted provided that the following conditions are met:
-* Redistributions of source code must retain the above copyright notice, 
+* Redistributions of source code must retain the above copyright notice,
   this list of conditions and the following disclaimer.
-* Redistributions in binary form must reproduce the above copyright notice, 
-  this list of conditions and the following disclaimer in the documentation 
+* Redistributions in binary form must reproduce the above copyright notice,
+  this list of conditions and the following disclaimer in the documentation
   and/or other materials provided with the distribution.
-* Neither the name of the Skyley Networks, Inc. nor the names of its contributors 
-  may be used to endorse or promote products derived from this software 
+* Neither the name of the Skyley Networks, Inc. nor the names of its contributors
+  may be used to endorse or promote products derived from this software
   without specific prior written permission.
 
 THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND
@@ -50,6 +50,8 @@ public class SKERxUdp implements SKEvent {
 	private String senderLLA;
 	/** MACフレーム暗号化フラグ */
 	private boolean isSecured;
+	/** Side */
+	private String side;
 	/** 受信データ長 */
 	private int dataLength;
 	/** 受信データ */
@@ -174,6 +176,14 @@ public class SKERxUdp implements SKEvent {
 	 */
 	public void setSecured(boolean flag) {
 		isSecured = flag;
+	}
+
+	public String getSide() {
+		return side;
+	}
+
+	public void setSide(String side) {
+		this.side = side;
 	}
 
 	/**

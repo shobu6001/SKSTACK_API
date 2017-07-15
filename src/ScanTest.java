@@ -44,7 +44,7 @@ public class ScanTest implements SKEventListener {
 		device2.resetStack();
 
 		System.out.println("ED Scan.");
-		device1.scanChannel(SKScanMode.ED_SCAN, "FFFFFFFF", (byte)6);
+		device1.scanChannel(SKScanMode.ED_SCAN, "FFFFFFFF", (byte)6, "0");
 		waitScan();
 
 		System.out.println("Set Channel and PAN ID.");
@@ -53,17 +53,17 @@ public class ScanTest implements SKEventListener {
 		device1.setBeaconResponseOn();
 
 		System.out.println("Active Scan with IE.");
-		device2.scanChannel(SKScanMode.ACTIVE_SCAN_WITH_IE, "FFFFFFFF", (byte)6);
+		device2.scanChannel(SKScanMode.ACTIVE_SCAN_WITH_IE, "FFFFFFFF", (byte)6, "0");
 		waitScan();
 
 		device2.setParingID("SCANTEST");
 		System.out.println("Set ParingID SCANTEST");
 		System.out.println("Acitve Scan with IE.");
-		device2.scanChannel(SKScanMode.ACTIVE_SCAN_WITH_IE, "FFFFFFFF", (byte)6);
+		device2.scanChannel(SKScanMode.ACTIVE_SCAN_WITH_IE, "FFFFFFFF", (byte)6, "0");
 		waitScan();
 
 		System.out.println("Active Scan without IE.");
-		device2.scanChannel(SKScanMode.ACTIVE_SCAN_WITHOUT_IE, "FFFFFFFF", (byte)6);
+		device2.scanChannel(SKScanMode.ACTIVE_SCAN_WITHOUT_IE, "FFFFFFFF", (byte)6, "0");
 		waitScan();
 
 		device1.setSKEventListener(oldListener1);

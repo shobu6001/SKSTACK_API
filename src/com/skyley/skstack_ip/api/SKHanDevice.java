@@ -751,12 +751,13 @@ public class SKHanDevice {
 	 * 指定したチャンネルに対してスキャン実行
 	 * @param mode スキャンモード
 	 * @param mask スキャンするチャンネルのビットマップフラグ（最下位ビットがチャンネル33に対応）
-	 * @param duration 各チャンネルのスキャン時間（値域:0-14）、スキャン時間は次の式で計算<br>
+	 * @param duration 各チャンネルのスキャン時間（値域:0-14）、スキャン時間は次の式で計算
+	 * @param target Bルートは0
 	 * 0.01 sec * (2^{duration} + 1)
 	 * @return スキャン開始に成功:true, 失敗:false
 	 */
-	public boolean scanChannel(SKScanMode mode, String mask, byte duration) {
-		SKScan skscan = new SKScan(mode, mask, duration);
+	public boolean scanChannel(SKScanMode mode, String mask, byte duration, String target) {
+		SKScan skscan = new SKScan(mode, mask, duration, target);
 		return sendCommandAndWaitOK(skscan);
 	}
 

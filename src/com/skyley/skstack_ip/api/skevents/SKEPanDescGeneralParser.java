@@ -4,13 +4,13 @@ All rights reserved.
 
 Redistribution and use in source and binary forms, with or without
 modification, are permitted provided that the following conditions are met:
-* Redistributions of source code must retain the above copyright notice, 
+* Redistributions of source code must retain the above copyright notice,
   this list of conditions and the following disclaimer.
-* Redistributions in binary form must reproduce the above copyright notice, 
-  this list of conditions and the following disclaimer in the documentation 
+* Redistributions in binary form must reproduce the above copyright notice,
+  this list of conditions and the following disclaimer in the documentation
   and/or other materials provided with the distribution.
-* Neither the name of the Skyley Networks, Inc. nor the names of its contributors 
-  may be used to endorse or promote products derived from this software 
+* Neither the name of the Skyley Networks, Inc. nor the names of its contributors
+  may be used to endorse or promote products derived from this software
   without specific prior written permission.
 
 THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND
@@ -48,11 +48,11 @@ public class SKEPanDescGeneralParser implements SKEPanDescParser {
 		try {
 			String[] ary = raw.split(",");
 			int length = ary.length;
-			if (length != 5 && length != 6) {
+			if (length != 6 && length != 7) {
 				return false;
 			}
 
-			String[] aryParam = new String[6];
+			String[] aryParam = new String[7];
 			for (int i = 0; i < length; i++) {
 				String[] ary2 = ary[i].trim().split(":");
 				if (ary2.length != 2) {
@@ -66,8 +66,9 @@ public class SKEPanDescGeneralParser implements SKEPanDescParser {
 			ePanDesc.setPanID(Integer.parseInt(aryParam[2], 16));
 			ePanDesc.setAddress(aryParam[3]);
 			ePanDesc.setLQI(Short.parseShort(aryParam[4], 16));
-			if (length == 6) {
-				ePanDesc.setPairID(aryParam[5]);
+			ePanDesc.setSide(aryParam[5]);
+			if (length == 7) {
+				ePanDesc.setPairID(aryParam[6]);
 			}
 			return true;
 		}
