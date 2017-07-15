@@ -45,6 +45,7 @@ import com.skyley.skstack_ip.api.skcommands.SKConnect;
 import com.skyley.skstack_ip.api.skcommands.SKErase;
 import com.skyley.skstack_ip.api.skcommands.SKInfo;
 import com.skyley.skstack_ip.api.skcommands.SKJoin;
+import com.skyley.skstack_ip.api.skcommands.SKLL64;
 import com.skyley.skstack_ip.api.skcommands.SKLoad;
 import com.skyley.skstack_ip.api.skcommands.SKPing;
 import com.skyley.skstack_ip.api.skcommands.SKRegDev;
@@ -277,6 +278,21 @@ public class SKDevice {
 		}
 		else {
 			return "";
+		}
+	}
+
+	/**
+	 * IPv6アドレスを取得
+	 * @param hexAddress EPANDESCのAddr値
+	 * @return IPv6アドレスの文字列表現（"FE80:0000:0000:0000:1034:5678:ABCD:EF01"など）、取得に失敗した場合は""
+	 */
+	public String getIP6Address(String hexAddress) {
+		SKLL64 skll64 = new SKLL64(hexAddress);
+		String[] res = sendCommandAndGetResponse(skll64, 1);
+		if (res == null || res.length < 1) {
+			return "";
+		} else {
+			return res[0];
 		}
 	}
 
