@@ -157,6 +157,8 @@ public class SKDevice {
 
 			Thread trx = new Thread(receiver);
 			Thread tread = new Thread(reader);
+			trx.setName("SKReceiver");
+			tread.setName("SKRxBufferReader");
 			trx.start();
 			tread.start();
 
@@ -1421,7 +1423,7 @@ public class SKDevice {
 	 */
 	private void debugOut(SKCommand command) {
 		if (debugListener != null) {
-			debugListener.debugOut(portString, command.getCommandString());
+			debugListener.debugOut(">>" + portString, command.getCommandString());
 		}
 	}
 

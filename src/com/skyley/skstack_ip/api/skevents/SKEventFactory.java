@@ -133,7 +133,7 @@ public class SKEventFactory {
 	 */
 	private void debugOut(SKDebugListener listener, String port, String line) {
 		if (listener != null && line != null) {
-			listener.debugOut(port, line);
+			listener.debugOut("<<" + port, line);
 		}
 	}
 

@@ -1107,7 +1107,7 @@ public class SKHanDevice {
 	 */
 	private void debugOut(SKCommand command) {
 		if (debugListener != null) {
-			debugListener.debugOut(portString, command.getCommandString());
+			debugListener.debugOut(">>" + portString, command.getCommandString());
 		}
 	}
 
